@@ -34,7 +34,7 @@ const fetchData = async (location, type) => {
 
 const currentLocationDataConverter = (data) => {
   const newData = {
-    description: data.weather.description,
+    icon: data.weather[0].icon,
     temperature: data.main.temp,
     pressure: data.main.pressure,
     humidity: data.main.humidity,
@@ -55,26 +55,31 @@ const forecastDataConverted = (data) => {
         date: data.list[2].dt,
         minTemp: data.list[2].main.temp_min,
         maxTemp: data.list[2].main.temp_max,
+        icon: data.list[2].weather[0].icon,
       },
       {
         date: data.list[10].dt,
         minTemp: data.list[10].main.temp_min,
         maxTemp: data.list[10].main.temp_max,
+        icon: data.list[10].weather[0].icon,
       },
       {
         date: data.list[18].dt,
         minTemp: data.list[18].main.temp_min,
         maxTemp: data.list[18].main.temp_max,
+        icon: data.list[18].weather[0].icon,
       },
       {
         date: data.list[26].dt,
         minTemp: data.list[26].main.temp_min,
         maxTemp: data.list[26].main.temp_max,
+        icon: data.list[26].weather[0].icon,
       },
       {
         date: data.list[34].dt,
         minTemp: data.list[34].main.temp_min,
         maxTemp: data.list[34].main.temp_max,
+        icon: data.list[34].weather[0].icon,
       },
     ],
   };
