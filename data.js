@@ -1,13 +1,18 @@
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
+const fetch = require("node-fetch");
 
 const apiKey = process.env.API_KEY;
 
-const fetch = require("node-fetch");
-
-const giveFetchData = async (location) => {
-  const fetchURL = `https://community-open-weather-map.p.rapidapi.com/weather?q=${location}&units=metric`;
+/**
+ *
+ * @param {String} location name of location to get the data of the same
+ * @param {String} type type of ajax request which is either 'weather' or 'forecast'
+ * @returns {Object} required data to be sent to the client
+ */
+const fetchData = async (location, type) => {
+  const fetchURL = `https://community-open-weather-map.p.rapidapi.com/${type}?q=${location}&units=metric`;
   const fetchOptions = {
     method: "GET",
     headers: {
@@ -17,8 +22,14 @@ const giveFetchData = async (location) => {
   };
   const res = await fetch(fetchURL, fetchOptions);
   const data = await res.json();
-  const convertedData = currentLocationDataConverter(data);
-  return convertedData;
+  let convertedData;
+  if (type === "weather") {
+    convertedData = currentLocationDataConverter(data);
+    return convertedData;
+  } else if (type === "forecast") {
+    convertedData = forecastDataConverted(data);
+    return convertedData;
+  }
 };
 
 const currentLocationDataConverter = (data) => {
@@ -37,4 +48,37 @@ const currentLocationDataConverter = (data) => {
   return newData;
 };
 
-module.exports = giveFetchData;
+const forecastDataConverted = (data) => {
+  const newData = {
+    data: [
+      {
+        date: data.list[2].dt,
+        minTemp: data.list[2].main.temp_min,
+        maxTemp: data.list[2].main.temp_max,
+      },
+      {
+        date: data.list[10].dt,
+        minTemp: data.list[10].main.temp_min,
+        maxTemp: data.list[10].main.temp_max,
+      },
+      {
+        date: data.list[18].dt,
+        minTemp: data.list[18].main.temp_min,
+        maxTemp: data.list[18].main.temp_max,
+      },
+      {
+        date: data.list[26].dt,
+        minTemp: data.list[26].main.temp_min,
+        maxTemp: data.list[26].main.temp_max,
+      },
+      {
+        date: data.list[34].dt,
+        minTemp: data.list[34].main.temp_min,
+        maxTemp: data.list[34].main.temp_max,
+      },
+    ],
+  };
+  return newData;
+};
+
+module.exports = fetchData;
