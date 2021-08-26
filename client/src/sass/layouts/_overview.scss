@@ -20,6 +20,7 @@
     height: rem(376);
     width: 100%;
     position: relative;
+    margin-bottom: rem(33);
 
     &::before {
       content: "";
@@ -34,5 +35,65 @@
       background-position: center top;
       opacity: 0.05;
     }
+  }
+
+  &__bottom {
+    @extend %flex;
+    flex-flow: column;
+    height: rem(492);
+    width: 100%;
+
+    #{$root}--tempContainer {
+      @extend %flex;
+      align-items: flex-end;
+      width: rem(192);
+      height: rem(169);
+      margin-bottom: rem(87);
+    }
+
+    #{$root}--temp {
+      .digit {
+        color: $neutral1;
+        font-size: rem(128);
+      }
+      .unit {
+        color: $neutral2;
+        font-size: rem(48);
+        font-family: "Raleway", sans-serif;
+      }
+    }
+
+    #{$root}--desc {
+      font-size: rem(36);
+      font-weight: 400;
+      color: $neutral2;
+      margin-bottom: rem(87);
+    }
+
+    #{$root}--datelocationcontainer {
+      color: $neutral3;
+      font-size: rem(18);
+      span:not(:last-child) {
+        margin-right: rem(16);
+      }
+    }
+
+    #{$root}--datecontainer {
+      margin-bottom: rem(32);
+    }
+
+    #{$root}--locationcontainer {
+      @extend %flex;
+      width: rem(96);
+      height: rem(24);
+      margin: 0 auto;
+    }
+  }
+}
+
+.locationIcon {
+  margin-right: rem(9);
+  path {
+    fill: $neutral3;
   }
 }
