@@ -1,9 +1,10 @@
+import Overview from "./layouts/overview/Overview";
 import "../sass/app.scss";
 
 function App() {
   return (
     <main className="main">
-      <h1>Hello World</h1>
+      <Overview />
     </main>
   );
 }
