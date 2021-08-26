@@ -1,3 +1,4 @@
+import OverviewBottom from "./OverviewBottom";
 import OverviewMiddle from "./OverviewMiddle";
 import OverviewTop from "./OverviewTop";
 
@@ -6,6 +7,7 @@ function Overview() {
     <section className="overview">
       <OverviewTop />
       <OverviewMiddle />
+      <OverviewBottom />
     </section>
   );
 }
