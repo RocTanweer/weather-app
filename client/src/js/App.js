@@ -2,9 +2,9 @@ import "../sass/app.scss";
 
 function App() {
   return (
-    <div>
+    <main className="main">
       <h1>Hello World</h1>
-    </div>
+    </main>
   );
 }
 

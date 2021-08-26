@@ -1,0 +1,7 @@
+@use '../utilities' as *;
+
+.main {
+  @extend %grid;
+  width: 100%;
+  height: 100%;
+}
