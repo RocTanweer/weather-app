@@ -5,13 +5,12 @@
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   background-color: $secondary;
-  padding: rem(42) rem(0) rem(52) rem(0);
 
   &__top {
     @extend %flex;
     justify-content: space-between;
     width: 100%;
-    padding: 0 rem(46);
+    padding: rem(42) rem(46) 0 rem(46);
     margin-bottom: rem(21);
   }
 
@@ -87,6 +86,7 @@
       width: rem(96);
       height: rem(24);
       margin: 0 auto;
+      padding-bottom: rem(52);
     }
   }
 }
