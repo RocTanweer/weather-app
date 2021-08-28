@@ -9,14 +9,14 @@
 
 %grid {
   display: grid;
-  grid-template-columns: rem(459) rem(981);
+  grid-template-columns: 31.875fr 68.125fr;
   grid-template-rows: 100%;
 
-  @include responsive(tab) {
-    grid-template-rows: calc(
-      359px + (534 - 359) * ((100vw - 375px) / (1024 - 375))
-    );
-  }
+  // @include responsive(tab) {
+  //   grid-template-rows: calc(
+  //     359px + (534 - 359) * ((100vw - 375px) / (1024 - 375))
+  //   );
+  // }
 }
 
 %listreset {

@@ -19,7 +19,7 @@ function Overview() {
           <p className="overview--temp">
             <span className="digit">15</span>
             <span className="unit" style={{ fontFamily: "Raleway" }}>
-              &#8451;
+              °C
             </span>
           </p>
         </div>

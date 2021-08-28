@@ -1,0 +1,113 @@
+@use '../utilities' as *;
+
+.content {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  background-color: $primary;
+
+  .contentWrapper {
+    max-width: rem(704);
+    margin: 0 auto;
+    height: 100%;
+  }
+
+  &__top {
+    @extend %flex;
+    justify-content: flex-end;
+    padding-top: rem(42);
+    margin-bottom: rem(66);
+
+    .btn--degC {
+      margin-right: rem(12);
+    }
+  }
+
+  &__forecastWrapper {
+    @extend %flex;
+    width: 100%;
+    height: auto;
+  }
+
+  &__forecast {
+    width: rem(120);
+    height: rem(177);
+    background-color: $secondary;
+    text-align: center;
+    padding: rem(18) 0 rem(18) 0;
+    margin-bottom: rem(72);
+
+    &:not(:last-child) {
+      margin-right: rem(26);
+    }
+
+    &--day {
+      color: $neutral1;
+      margin-bottom: rem(10);
+    }
+    &--img {
+      width: 100%;
+      height: rem(62);
+      margin-bottom: rem(31);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &--temp {
+      .max {
+        color: $neutral1;
+        margin-right: rem(16);
+      }
+
+      .min {
+        color: $neutral2;
+      }
+    }
+  }
+
+  &__highlights {
+    width: 100%;
+    height: auto;
+
+    &--heading {
+      font-size: rem(24);
+      font-weight: bold;
+      color: $neutral1;
+      margin-bottom: rem(32);
+    }
+
+    &--dataContainer {
+      @extend %flex;
+      gap: rem(48);
+      flex-wrap: wrap;
+    }
+
+    &--data {
+      width: rem(328);
+      height: auto;
+      background-color: $secondary;
+      padding: rem(22) 0 rem(22) 0;
+      text-align: center;
+
+      .type {
+        color: $neutral1;
+        margin-bottom: rem(14);
+      }
+
+      .measure {
+        .number {
+          font-size: rem(60);
+          font-weight: 600;
+          color: $neutral1;
+        }
+        .unit {
+          color: $neutral1;
+          font-size: rem(30);
+        }
+      }
+    }
+  }
+}
