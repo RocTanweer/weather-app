@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
+import useCurrLocName from "./useCurrLocName";
 
-export default function (name) {
+export default function (name = undefined) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
+  const localName = useCurrLocName();
+
+  if (name === undefined) {
+    name = localName;
+  }
 
   const fetchData = async (name) => {
     setIsLoading(true);
@@ -24,7 +30,7 @@ export default function (name) {
 
   useEffect(() => {
     fetchData(name);
-  }, []);
+  }, [name]);
 
   return { isLoading, setIsLoading, data };
 }

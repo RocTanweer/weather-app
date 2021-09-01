@@ -4,7 +4,7 @@ import Content from "./layouts/content/Content";
 import useFetch from "./hooks/useFetch";
 
 function App() {
-  useFetch("London");
+  useFetch();
 
   return (
     <main className="main">
