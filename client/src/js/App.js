@@ -1,16 +1,16 @@
 import Overview from "./layouts/overview/Overview";
 import "../sass/app.scss";
 import Content from "./layouts/content/Content";
-import useFetch from "./hooks/useFetch";
+import { GlobalContextProvider } from "./store/context-manager";
 
 function App() {
-  useFetch();
-
   return (
-    <main className="main">
-      <Overview />
-      <Content />
-    </main>
+    <GlobalContextProvider>
+      <main className="main">
+        <Overview />
+        <Content />
+      </main>
+    </GlobalContextProvider>
   );
 }
 

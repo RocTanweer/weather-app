@@ -1,8 +1,15 @@
 import Button from "../../components/global/Button";
 import Icon from "../../components/global/Icon";
 import image from "../../../assets/img/11d-thunderstorm.png";
+import { GlobalContext } from "../../store/context-manager";
+import { useContext } from "react";
 
 function Overview() {
+  const globalctx = useContext(GlobalContext);
+
+  if (globalctx.isLoading) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <section className="overview">
       <div className="overview__top">
