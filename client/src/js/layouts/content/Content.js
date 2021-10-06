@@ -6,7 +6,14 @@ import Moment from "react-moment";
 import Icon from "../../components/global/Icon";
 
 function Content() {
-  const { isLoading, current, forecast } = useContext(GlobalContext);
+  const {
+    isLoading,
+    current,
+    forecast,
+    setIsCelcius,
+    handleTempUnit,
+    isCelcius,
+  } = useContext(GlobalContext);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -20,8 +27,18 @@ function Content() {
       <div className="contentWrapper">
         <div className="content__top">
           <div className="switchTemp">
-            <Button type="degC" children="°C" active={true} />
-            <Button type="degF" children="°F" />
+            <Button
+              type="degC"
+              children="°C"
+              active={isCelcius}
+              setTemp={setIsCelcius}
+            />
+            <Button
+              type="degF"
+              children="°F"
+              active={!isCelcius}
+              setTemp={setIsCelcius}
+            />
           </div>
         </div>
         <section className="content__forecastWrapper">
@@ -40,8 +57,16 @@ function Content() {
                   <img src={images[icon]} alt="forecast-image" />
                 </div>
                 <p className="content__forecast--temp">
-                  <span className="max">{Math.ceil(maxTemp)}°C</span>
-                  <span className="min">{Math.ceil(minTemp)}°C</span>
+                  <span className="max">
+                    {isCelcius
+                      ? `${Math.ceil(maxTemp)}°C`
+                      : `${handleTempUnit(maxTemp)}°F`}
+                  </span>
+                  <span className="min">
+                    {isCelcius
+                      ? `${Math.ceil(minTemp)}°C`
+                      : `${handleTempUnit(minTemp)}°F`}
+                  </span>
                 </p>
               </article>
             );

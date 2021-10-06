@@ -1,4 +1,4 @@
-@use '../utilities' as *;
+@use "../utilities" as *;
 
 .btn {
   @extend %buttonreset;
@@ -34,7 +34,10 @@
   font-size: rem(18);
   font-weight: bold;
 }
-
+.btn--active {
+  background-color: $neutral1;
+  color: $primary;
+}
 .btn--temp-active {
   background-color: $neutral1;
   color: $tertiary3;

@@ -1,4 +1,4 @@
-@use '../utilities' as *;
+@use "../utilities" as *;
 
 .overview {
   $root: &;
@@ -67,6 +67,7 @@
       font-weight: 400;
       color: $neutral2;
       margin-bottom: rem(87);
+      text-transform: capitalize;
     }
 
     #{$root}--datelocationcontainer {

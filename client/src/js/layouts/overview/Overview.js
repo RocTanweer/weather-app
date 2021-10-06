@@ -6,7 +6,8 @@ import images from "../../../assets/imgData";
 import Moment from "react-moment";
 
 function Overview() {
-  const { isLoading, current } = useContext(GlobalContext);
+  const { isLoading, current, handleTempUnit, isCelcius } =
+    useContext(GlobalContext);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -28,9 +29,11 @@ function Overview() {
       <div className="overview__bottom">
         <div className="overview--tempContainer">
           <p className="overview--temp">
-            <span className="digit">{Math.ceil(temperature)}</span>
+            <span className="digit">
+              {isCelcius ? Math.ceil(temperature) : handleTempUnit(temperature)}
+            </span>
             <span className="unit" style={{ fontFamily: "Raleway" }}>
-              °C
+              {isCelcius ? "°C" : "°F"}
             </span>
           </p>
         </div>
