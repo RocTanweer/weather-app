@@ -1,4 +1,4 @@
-@use '../utilities' as *;
+@use "../utilities" as *;
 
 .content {
   grid-column: 2 / 3;
@@ -107,6 +107,40 @@
           color: $neutral1;
           font-size: rem(30);
         }
+      }
+      .measure--top {
+        margin-bottom: rem(17);
+      }
+
+      .range {
+        color: $neutral1;
+        font-size: rem(14);
+        width: rem(229);
+        margin: 0 auto;
+        &--scale {
+          display: flex;
+          justify-content: space-between;
+        }
+        &--indicator {
+          width: 100%;
+          border-radius: rem(4);
+          margin: rem(2) 0 rem(4) 0;
+          background-color: $neutral1;
+          height: rem(8);
+          .highlighted {
+            background-color: $tertiary;
+            height: rem(8);
+            border-radius: rem(4);
+          }
+        }
+        &--unit {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+
+      .directionIcon {
+        display: inline-flex;
       }
     }
   }

@@ -9,7 +9,8 @@ export function GlobalContextProvider({ children }) {
   const context = {
     setIsLoading: setIsLoading,
     isLoading: isLoading,
-    data: data,
+    current: data?.currentLocationData,
+    forecast: data?.currentLocationForecastData,
   };
 
   return (

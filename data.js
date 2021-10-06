@@ -12,29 +12,34 @@ const apiKey = process.env.API_KEY;
  * @returns {Object} required data to be sent to the client
  */
 const fetchData = async (location, type) => {
-  const fetchURL = `https://community-open-weather-map.p.rapidapi.com/${type}?q=${location}&units=metric`;
-  const fetchOptions = {
-    method: "GET",
-    headers: {
-      "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
-      "x-rapidapi-key": apiKey,
-    },
-  };
-  const res = await fetch(fetchURL, fetchOptions);
-  const data = await res.json();
-  let convertedData;
-  if (type === "weather") {
-    convertedData = currentLocationDataConverter(data);
-    return convertedData;
-  } else if (type === "forecast") {
-    convertedData = forecastDataConverted(data);
-    return convertedData;
+  try {
+    const fetchURL = `https://community-open-weather-map.p.rapidapi.com/${type}?q=${location}&units=metric`;
+    const fetchOptions = {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
+        "x-rapidapi-key": apiKey,
+      },
+    };
+    const res = await fetch(fetchURL, fetchOptions);
+    const data = await res.json();
+    let convertedData;
+    if (type === "weather") {
+      convertedData = currentLocationDataConverter(data);
+      return convertedData;
+    } else if (type === "forecast") {
+      convertedData = forecastDataConverted(data);
+      return convertedData;
+    }
+  } catch (err) {
+    console.error(err);
   }
 };
 
 const currentLocationDataConverter = (data) => {
   const newData = {
     icon: data.weather[0].icon,
+    desc: data.weather[0].main,
     temperature: data.main.temp,
     pressure: data.main.pressure,
     humidity: data.main.humidity,
