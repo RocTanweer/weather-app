@@ -1,7 +1,8 @@
-function Button({ children, type, active, setTemp }) {
+function Button({ children, type, active, handleClick }) {
   return (
     <button
-      onClick={(e) => (type === "degC" ? setTemp(true) : setTemp(false))}
+      onClick={handleClick}
+      data-type={type}
       className={`btn btn--${type} ${active ? "btn--active" : ""}`}
     >
       {children}
