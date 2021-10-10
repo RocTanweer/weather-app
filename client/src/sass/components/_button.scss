@@ -42,3 +42,11 @@
   background-color: $neutral1;
   color: $tertiary3;
 }
+
+.btn--markerIcon {
+  pointer-events: none;
+}
+
+.btn--close {
+  color: $neutral1;
+}

@@ -14,6 +14,16 @@
     margin-bottom: rem(21);
   }
 
+  &__search {
+    padding: rem(19.7) rem(46);
+
+    &--close {
+      @extend %flex;
+      justify-content: flex-end;
+      margin-bottom: rem(45.21);
+    }
+  }
+
   &__middle {
     @extend %flex;
     height: rem(376);

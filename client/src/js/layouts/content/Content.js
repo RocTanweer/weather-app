@@ -10,14 +10,10 @@ function Content() {
     isLoading,
     current,
     forecast,
-    setIsCelcius,
     handleTempUnit,
     isCelcius,
+    handleButtonClick,
   } = useContext(GlobalContext);
-
-  const handleTempChange = (e) => {
-    e.target.dataset.type === "degC" ? setIsCelcius(true) : setIsCelcius(false);
-  };
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -33,16 +29,18 @@ function Content() {
           <div className="switchTemp">
             <Button
               type="degC"
-              children="°C"
               active={isCelcius}
-              handleClick={handleTempChange}
-            />
+              handleClick={handleButtonClick}
+            >
+              °C
+            </Button>
             <Button
               type="degF"
-              children="°F"
               active={!isCelcius}
-              handleClick={handleTempChange}
-            />
+              handleClick={handleButtonClick}
+            >
+              °F
+            </Button>
           </div>
         </div>
         <section className="content__forecastWrapper">
