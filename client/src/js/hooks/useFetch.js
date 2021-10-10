@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useCurrLocName from "./useCurrLocName";
 
-export default function (name = undefined) {
+export default function (name) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
   const localName = useCurrLocName();

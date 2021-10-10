@@ -13,6 +13,7 @@ function Overview() {
     isCelcius,
     handleButtonClick,
     isSearchActive,
+    handleSearchFormSubmit,
   } = useContext(GlobalContext);
 
   if (isLoading) {
@@ -90,8 +91,16 @@ function Overview() {
           </Button>
         </div>
 
-        <form className="overview__search--form">
-          <input type="text" name="search" placeholder="search location" />
+        <form
+          className="overview__search--form"
+          onSubmit={handleSearchFormSubmit}
+        >
+          <input
+            type="text"
+            name="search"
+            placeholder="search location"
+            autoComplete="off"
+          />
           <button type="submit" className="btn btn--search">
             search
           </button>
@@ -100,7 +109,7 @@ function Overview() {
     </section>
   );
 
-  return <>{isSearchActive ? overviewContent : searchActive} </>;
+  return <>{isSearchActive ? searchActive : overviewContent} </>;
 }
 
 export default Overview;
