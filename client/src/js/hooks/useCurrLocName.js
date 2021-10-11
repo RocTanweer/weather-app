@@ -23,7 +23,7 @@ export default function () {
   };
   useEffect(() => {
     fetchName();
-  });
+  }, [name]);
 
   return name;
 }

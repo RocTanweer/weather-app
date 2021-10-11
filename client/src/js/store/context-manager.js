@@ -34,7 +34,9 @@ export function GlobalContextProvider({ children }) {
 
   const handleSearchFormSubmit = (e) => {
     e.preventDefault();
-    setLocationName(e.target.search.value);
+    const userInput = e.target.search.value;
+    if (!userInput) return;
+    setLocationName(userInput);
     setIsSearchActive(false);
   };
 
@@ -49,6 +51,7 @@ export function GlobalContextProvider({ children }) {
     handleButtonClick,
     isSearchActive,
     handleSearchFormSubmit,
+    setLocationName,
   };
 
   return (

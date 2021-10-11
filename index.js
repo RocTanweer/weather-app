@@ -13,6 +13,7 @@ const PORT = process.env.PORT | 4000;
 
 app.post("/weather", async (req, res) => {
   const location = req.body.location;
+  if (!location) return;
   console.log(location);
   // const currentLocationData = await fetchData(location, "weather");
   // const currentLocationForecastData = await fetchData(location, "forecast");

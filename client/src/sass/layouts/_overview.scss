@@ -22,6 +22,22 @@
       justify-content: flex-end;
       margin-bottom: rem(45.21);
     }
+
+    input {
+      font-size: rem(19);
+      background-color: $secondary;
+      border: 2px solid $neutral1;
+      outline: none;
+      color: $neutral1;
+      padding: rem(15) rem(15) rem(15) rem(49);
+
+      &::placeholder {
+        color: $placeholderColor;
+        font-size: rem(19);
+      }
+    }
+    .btn--submit {
+    }
   }
 
   &__middle {

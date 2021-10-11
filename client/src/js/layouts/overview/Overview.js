@@ -101,7 +101,7 @@ function Overview() {
             placeholder="search location"
             autoComplete="off"
           />
-          <button type="submit" className="btn btn--search">
+          <button type="submit" className="btn btn--submit">
             search
           </button>
         </form>
