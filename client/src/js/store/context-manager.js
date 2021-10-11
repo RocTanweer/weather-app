@@ -7,7 +7,8 @@ export function GlobalContextProvider({ children }) {
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [isCelcius, setIsCelcius] = useState(true);
   const [locationName, setLocationName] = useState(undefined);
-  const { setIsLoading, isLoading, data } = useFetch(locationName);
+  const { isLoading, data } = useFetch(locationName);
+  const [searchedLocations, setSearchedLocations] = useState([]);
 
   const handleTempUnit = (temp) => {
     return Math.ceil(temp * 1.8 + 32);
@@ -38,20 +39,24 @@ export function GlobalContextProvider({ children }) {
     if (!userInput) return;
     setLocationName(userInput);
     setIsSearchActive(false);
+    setSearchedLocations((prevState) => {
+      if (prevState.length > 4) {
+        return [userInput, ...prevState.slice(0, 4)];
+      }
+      return [userInput, ...prevState];
+    });
   };
 
   const context = {
-    setIsLoading,
     isLoading,
     current: data?.currentLocationData,
     forecast: data?.currentLocationForecastData,
-    setIsCelcius,
     isCelcius,
     handleTempUnit,
     handleButtonClick,
     isSearchActive,
     handleSearchFormSubmit,
-    setLocationName,
+    searchedLocations,
   };
 
   return (

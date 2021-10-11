@@ -17,6 +17,39 @@
   &__search {
     padding: rem(19.7) rem(46);
 
+    &--form {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: rem(58);
+    }
+
+    &--history {
+      list-style: none;
+      font-size: rem(19);
+      text-transform: capitalize;
+      color: $neutral1;
+
+      li {
+        @extend %flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: rem(23) rem(16.42) rem(22) rem(12);
+        cursor: pointer;
+        margin-bottom: rem(27);
+
+        svg {
+          opacity: 0;
+        }
+
+        &:hover {
+          border: 1px solid $placeholderColor;
+          svg {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
     &--close {
       @extend %flex;
       justify-content: flex-end;
@@ -26,10 +59,10 @@
     input {
       font-size: rem(19);
       background-color: $secondary;
-      border: 2px solid $neutral1;
+      border: 1px solid $neutral1;
       outline: none;
       color: $neutral1;
-      padding: rem(15) rem(15) rem(15) rem(49);
+      padding: rem(14) rem(10) rem(15) rem(15);
 
       &::placeholder {
         color: $placeholderColor;
@@ -37,6 +70,11 @@
       }
     }
     .btn--submit {
+      font-size: rem(19);
+      padding: rem(14) rem(14) rem(15) rem(19);
+      background-color: $submitBtnColor;
+      color: $neutral1;
+      text-transform: capitalize;
     }
   }
 
