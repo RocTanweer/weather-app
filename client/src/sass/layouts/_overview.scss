@@ -14,6 +14,11 @@
     margin-bottom: rem(21);
   }
 
+  &__down {
+    position: relative;
+    min-height: rem(500);
+  }
+
   &__search {
     padding: rem(19.7) rem(46);
 

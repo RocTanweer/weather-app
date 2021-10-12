@@ -4,11 +4,7 @@ import Search from "./Search";
 import OverviewContent from "./OverviewContent";
 
 function Overview() {
-  const { isLoading, isSearchActive } = useContext(GlobalContext);
-
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
+  const { isSearchActive } = useContext(GlobalContext);
 
   return (
     <section className="overview">
