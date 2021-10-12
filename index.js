@@ -72,7 +72,9 @@ app.post("/weather", async (req, res) => {
   };
 
   // res.json({ currentLocationData, currentLocationForecastData });
-  res.json(temporaryData);
+  setTimeout(() => {
+    res.json(temporaryData);
+  }, 2000);
 });
 
 app.listen(PORT, () => console.log(`Server running at port ${PORT}`));
