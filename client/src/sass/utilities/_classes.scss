@@ -1,0 +1,43 @@
+@use "./variables" as *;
+@use "./animation" as *;
+@use "./functions" as *;
+
+.loadingIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .spinner {
+    animation: rotator $duration linear infinite;
+
+    .path {
+      stroke-dasharray: $offset;
+      stroke-dashoffset: 0;
+      transform-origin: center;
+      animation: dash $duration ease-in-out infinite,
+        colors ($duration * 4) ease-in-out infinite;
+    }
+  }
+
+  &--sm {
+    .spinner {
+      width: rem(65);
+      height: rem(65);
+    }
+  }
+
+  &--md {
+    .spinner {
+      width: rem(91);
+      height: rem(91);
+    }
+  }
+
+  &--lg {
+    .spinner {
+      width: rem(121);
+      height: rem(121);
+    }
+  }
+}
