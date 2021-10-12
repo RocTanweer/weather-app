@@ -26,6 +26,8 @@
     @extend %flex;
     width: 100%;
     height: auto;
+    position: relative;
+    min-height: rem(249);
   }
 
   &__forecast {
@@ -71,6 +73,8 @@
   &__highlights {
     width: 100%;
     height: auto;
+    position: relative;
+    min-height: rem(466);
 
     &--heading {
       font-size: rem(24);
