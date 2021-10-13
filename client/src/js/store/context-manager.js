@@ -30,6 +30,9 @@ export function GlobalContextProvider({ children }) {
         break;
       case "close":
         setIsSearchActive(false);
+      case "historyLocation":
+        setLocationName(e.target.innerText);
+        setIsSearchActive(false);
     }
   };
 

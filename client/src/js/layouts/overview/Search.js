@@ -31,7 +31,7 @@ function Search() {
 
       <ul className="overview__search--history">
         {searchedLocations.map((location, key) => (
-          <li key={key}>
+          <li key={key} onClick={handleButtonClick} data-type="historyLocation">
             {location}
             {rightArrowSvg}
           </li>
