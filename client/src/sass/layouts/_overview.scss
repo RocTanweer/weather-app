@@ -6,12 +6,26 @@
   grid-row: 1 / 2;
   background-color: $secondary;
 
+  @include responsive(tab) {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  @include responsive(large) {
+    min-height: 100vh;
+  }
+
   &__top {
     @extend %flex;
     justify-content: space-between;
     width: 100%;
     padding: rem(42) rem(46) 0 rem(46);
     margin-bottom: rem(21);
+
+    @include responsive(small) {
+      padding: rem(18) rem(12) 0 rem(11);
+      margin-bottom: 0;
+    }
   }
 
   &__down {
@@ -21,6 +35,10 @@
 
   &__search {
     padding: rem(19.7) rem(46);
+
+    @include responsive(small) {
+      padding: rem(17.41) rem(12);
+    }
 
     &--form {
       display: flex;
@@ -69,6 +87,10 @@
       color: $neutral1;
       padding: rem(14) rem(10) rem(15) rem(15);
 
+      @include responsive(small) {
+        width: rem(252);
+      }
+
       &::placeholder {
         color: $placeholderColor;
         font-size: rem(19);
@@ -89,6 +111,11 @@
     width: 100%;
     position: relative;
     margin-bottom: rem(33);
+
+    @include responsive(small) {
+      height: rem(326);
+      margin-bottom: 0;
+    }
 
     &::before {
       content: "";
@@ -111,12 +138,20 @@
     height: rem(492);
     width: 100%;
 
+    @include responsive(small) {
+      height: auto;
+    }
+
     #{$root}--tempContainer {
       @extend %flex;
       align-items: flex-end;
       width: rem(192);
       height: rem(169);
       margin-bottom: rem(87);
+
+      @include responsive(small) {
+        margin-bottom: rem(23);
+      }
     }
 
     #{$root}--temp {
@@ -137,6 +172,10 @@
       color: $neutral2;
       margin-bottom: rem(87);
       text-transform: capitalize;
+
+      @include responsive(small) {
+        margin-bottom: rem(48);
+      }
     }
 
     #{$root}--datelocationcontainer {
@@ -144,6 +183,9 @@
       font-size: rem(18);
       span:not(:last-child) {
         margin-right: rem(16);
+        @include responsive(small) {
+          margin-bottom: rem(33);
+        }
       }
     }
 

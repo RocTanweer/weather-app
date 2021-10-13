@@ -1,7 +1,16 @@
-@use '../utilities' as *;
+@use "../utilities" as *;
 
 .main {
   @extend %grid;
   width: 100%;
   min-height: 100vh;
+
+  @include responsive(tab) {
+    grid-template-columns: 100%;
+    grid-template-rows: 100vh 100vh;
+  }
+
+  @include responsive(large) {
+    grid-template-rows: auto auto;
+  }
 }
