@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 const PORT = process.env.PORT | 4000;
+const IP_BIND = process.env.IP_BIND | "0.0.0.0";
 
 app.post("/weather", async (req, res) => {
   const location = req.body.location;
@@ -29,4 +30,4 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.listen(PORT, () => console.log(`Server running at port ${PORT}`));
+app.listen(PORT, IP_BIND, () => console.log(`Server running at port ${PORT}`));
