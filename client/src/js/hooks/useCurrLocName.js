@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export default function () {
+export default function (locationName) {
   const [name, setName] = useState();
 
   const fetchName = () => {
+    console.log("working?");
     const successFunc = async (position) => {
       const { latitude, longitude } = position.coords;
       const response = await fetch(
@@ -22,8 +23,11 @@ export default function () {
     }
   };
   useEffect(() => {
-    fetchName();
-  }, [name]);
+    console.log(locationName);
+    if (locationName === undefined) {
+      fetchName();
+    }
+  });
 
   return name;
 }

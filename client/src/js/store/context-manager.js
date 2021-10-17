@@ -1,12 +1,13 @@
 import { createContext, useState } from "react";
 import useFetch from "../hooks/useFetch";
+import { getCurrLocName } from "../hooks/getCurrLocName";
 
 export const GlobalContext = createContext();
 
 export function GlobalContextProvider({ children }) {
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [isCelcius, setIsCelcius] = useState(true);
-  const [locationName, setLocationName] = useState(undefined);
+  const [locationName, setLocationName] = useState("");
   const { isLoading, data } = useFetch(locationName);
   const [searchedLocations, setSearchedLocations] = useState([]);
 
