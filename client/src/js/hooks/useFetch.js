@@ -72,11 +72,15 @@ export default function (name) {
         setData(temporaryData);
         setIsLoading(false);
       } else {
-        const response = await fetch("http://localhost:4000/weather", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ location: name }),
-        });
+        const response = await fetch(
+          // Link for dev and prod server are different
+          "http://localhost:4000/weather",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ location: name }),
+          }
+        );
         const data = await response.json();
         setData(data);
         setIsLoading(false);
